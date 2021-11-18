@@ -1,0 +1,451 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0AB933892746738E0011F73B /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 0AB933882746738E0011F73B /* Realm */; };
+		0AB9338B2746738E0011F73B /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0AB9338A2746738E0011F73B /* RealmSwift */; };
+		0AB93390274681F30011F73B /* Drawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB9338F274681F30011F73B /* Drawing.swift */; };
+		0AB9339227468C3C0011F73B /* PersistableColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB9339127468C3C0011F73B /* PersistableColor.swift */; };
+		0AB9339427468F780011F73B /* PersistablePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB9339327468F780011F73B /* PersistablePoint.swift */; };
+		0AB933992746A0970011F73B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB933982746A0970011F73B /* ContentView.swift */; };
+		0AB9339B2746A0F90011F73B /* DrawingPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB9339A2746A0F90011F73B /* DrawingPickerView.swift */; };
+		0AB9339D2746A1EC0011F73B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB9339C2746A1EC0011F73B /* LoginView.swift */; };
+		0AB9339F2746A2B10011F73B /* LogoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB9339E2746A2B10011F73B /* LogoutButton.swift */; };
+		0AB933A12746A7670011F73B /* NewDrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB933A02746A7670011F73B /* NewDrawingView.swift */; };
+		0AB933A32746D7FA0011F73B /* BrushView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB933A22746D7FA0011F73B /* BrushView.swift */; };
+		17197DE0267CA77500D402F2 /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17197DDF267CA77500D402F2 /* DrawingView.swift */; };
+		17197DE2267CA7D200D402F2 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17197DE1267CA7D200D402F2 /* Line.swift */; };
+		17197DE4267CAE1200D402F2 /* DrawingEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17197DE3267CAE1200D402F2 /* DrawingEngine.swift */; };
+		17AD2BB0267CA03400708459 /* DrawingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AD2BAF267CA03400708459 /* DrawingApp.swift */; };
+		17AD2BB4267CA03600708459 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17AD2BB3267CA03600708459 /* Assets.xcassets */; };
+		17AD2BB7267CA03600708459 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17AD2BB6267CA03600708459 /* Preview Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0AB9338F274681F30011F73B /* Drawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawing.swift; sourceTree = "<group>"; };
+		0AB9339127468C3C0011F73B /* PersistableColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistableColor.swift; sourceTree = "<group>"; };
+		0AB9339327468F780011F73B /* PersistablePoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistablePoint.swift; sourceTree = "<group>"; };
+		0AB933982746A0970011F73B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0AB9339A2746A0F90011F73B /* DrawingPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingPickerView.swift; sourceTree = "<group>"; };
+		0AB9339C2746A1EC0011F73B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		0AB9339E2746A2B10011F73B /* LogoutButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutButton.swift; sourceTree = "<group>"; };
+		0AB933A02746A7670011F73B /* NewDrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDrawingView.swift; sourceTree = "<group>"; };
+		0AB933A22746D7FA0011F73B /* BrushView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushView.swift; sourceTree = "<group>"; };
+		17197DDF267CA77500D402F2 /* DrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
+		17197DE1267CA7D200D402F2 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		17197DE3267CAE1200D402F2 /* DrawingEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingEngine.swift; sourceTree = "<group>"; };
+		17AD2BAC267CA03400708459 /* Realm Draw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Realm Draw.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		17AD2BAF267CA03400708459 /* DrawingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingApp.swift; sourceTree = "<group>"; };
+		17AD2BB3267CA03600708459 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		17AD2BB6267CA03600708459 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		17AD2BA9267CA03400708459 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0AB9338B2746738E0011F73B /* RealmSwift in Frameworks */,
+				0AB933892746738E0011F73B /* Realm in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0AB9338E274681DC0011F73B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0AB9338F274681F30011F73B /* Drawing.swift */,
+				17197DE1267CA7D200D402F2 /* Line.swift */,
+				0AB9339327468F780011F73B /* PersistablePoint.swift */,
+				0AB9339127468C3C0011F73B /* PersistableColor.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0AB933962746A0710011F73B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				17197DE3267CAE1200D402F2 /* DrawingEngine.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		0AB933972746A0850011F73B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0AB933982746A0970011F73B /* ContentView.swift */,
+				0AB9339A2746A0F90011F73B /* DrawingPickerView.swift */,
+				17197DDF267CA77500D402F2 /* DrawingView.swift */,
+				0AB9339C2746A1EC0011F73B /* LoginView.swift */,
+				0AB9339E2746A2B10011F73B /* LogoutButton.swift */,
+				0AB933A02746A7670011F73B /* NewDrawingView.swift */,
+				0AB933A22746D7FA0011F73B /* BrushView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		17AD2BA3267CA03400708459 = {
+			isa = PBXGroup;
+			children = (
+				17AD2BAE267CA03400708459 /* DrawingApp */,
+				17AD2BAD267CA03400708459 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		17AD2BAD267CA03400708459 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				17AD2BAC267CA03400708459 /* Realm Draw.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		17AD2BAE267CA03400708459 /* DrawingApp */ = {
+			isa = PBXGroup;
+			children = (
+				17AD2BAF267CA03400708459 /* DrawingApp.swift */,
+				0AB933972746A0850011F73B /* Views */,
+				0AB9338E274681DC0011F73B /* Model */,
+				0AB933962746A0710011F73B /* Helpers */,
+				17AD2BB3267CA03600708459 /* Assets.xcassets */,
+				17AD2BB5267CA03600708459 /* Preview Content */,
+			);
+			path = DrawingApp;
+			sourceTree = "<group>";
+		};
+		17AD2BB5267CA03600708459 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				17AD2BB6267CA03600708459 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		17AD2BAB267CA03400708459 /* DrawingApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 17AD2BBA267CA03600708459 /* Build configuration list for PBXNativeTarget "DrawingApp" */;
+			buildPhases = (
+				17AD2BA8267CA03400708459 /* Sources */,
+				17AD2BA9267CA03400708459 /* Frameworks */,
+				17AD2BAA267CA03400708459 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DrawingApp;
+			packageProductDependencies = (
+				0AB933882746738E0011F73B /* Realm */,
+				0AB9338A2746738E0011F73B /* RealmSwift */,
+			);
+			productName = DrawingApp;
+			productReference = 17AD2BAC267CA03400708459 /* Realm Draw.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		17AD2BA4267CA03400708459 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					17AD2BAB267CA03400708459 = {
+						CreatedOnToolsVersion = 13.0;
+					};
+				};
+			};
+			buildConfigurationList = 17AD2BA7267CA03400708459 /* Build configuration list for PBXProject "DrawingApp" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 17AD2BA3267CA03400708459;
+			packageReferences = (
+				0AB933872746738E0011F73B /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+			);
+			productRefGroup = 17AD2BAD267CA03400708459 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				17AD2BAB267CA03400708459 /* DrawingApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		17AD2BAA267CA03400708459 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17AD2BB7267CA03600708459 /* Preview Assets.xcassets in Resources */,
+				17AD2BB4267CA03600708459 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		17AD2BA8267CA03400708459 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0AB9339F2746A2B10011F73B /* LogoutButton.swift in Sources */,
+				0AB933992746A0970011F73B /* ContentView.swift in Sources */,
+				0AB933A12746A7670011F73B /* NewDrawingView.swift in Sources */,
+				17AD2BB0267CA03400708459 /* DrawingApp.swift in Sources */,
+				0AB9339B2746A0F90011F73B /* DrawingPickerView.swift in Sources */,
+				0AB933A32746D7FA0011F73B /* BrushView.swift in Sources */,
+				0AB9339227468C3C0011F73B /* PersistableColor.swift in Sources */,
+				17197DE4267CAE1200D402F2 /* DrawingEngine.swift in Sources */,
+				0AB93390274681F30011F73B /* Drawing.swift in Sources */,
+				0AB9339427468F780011F73B /* PersistablePoint.swift in Sources */,
+				0AB9339D2746A1EC0011F73B /* LoginView.swift in Sources */,
+				17197DE0267CA77500D402F2 /* DrawingView.swift in Sources */,
+				17197DE2267CA7D200D402F2 /* Line.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		17AD2BB8267CA03600708459 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		17AD2BB9267CA03600708459 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		17AD2BBB267CA03600708459 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"DrawingApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 2ZB33FC454;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.karinprater.DrawingApp;
+				PRODUCT_NAME = "Realm Draw";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		17AD2BBC267CA03600708459 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"DrawingApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 2ZB33FC454;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.karinprater.DrawingApp;
+				PRODUCT_NAME = "Realm Draw";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		17AD2BA7267CA03400708459 /* Build configuration list for PBXProject "DrawingApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17AD2BB8267CA03600708459 /* Debug */,
+				17AD2BB9267CA03600708459 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		17AD2BBA267CA03600708459 /* Build configuration list for PBXNativeTarget "DrawingApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17AD2BBB267CA03600708459 /* Debug */,
+				17AD2BBC267CA03600708459 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0AB933872746738E0011F73B /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa";
+			requirement = {
+				kind = exactVersion;
+				version = 10.19.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0AB933882746738E0011F73B /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0AB933872746738E0011F73B /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		0AB9338A2746738E0011F73B /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0AB933872746738E0011F73B /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 17AD2BA4267CA03400708459 /* Project object */;
+}
