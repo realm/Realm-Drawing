@@ -24,10 +24,6 @@ struct DrawingView: View {
                     let path = engine.createPath(for: line.points)
                     context.stroke(path, with: .color(line.color), style: StrokeStyle(lineWidth: line.lineWidth, lineCap: .round, lineJoin: .round))
                 }
-                for line in drawing.lines {
-                    let path = engine.createPath(for: line.points)
-                    context.stroke(path, with: .color(line.color), style: StrokeStyle(lineWidth: line.lineWidth, lineCap: .round, lineJoin: .round))
-                }
             }
             .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local).onChanged({ value in
                 let newPoint = value.location
@@ -38,7 +34,8 @@ struct DrawingView: View {
                     $drawing.lines[index].linePoints.append(PersistablePoint(newPoint))
                 }
                 
-            }).onEnded({ value in
+            })
+                        .onEnded({ value in
                 if let last = drawing.lines.last?.linePoints, last.isEmpty {
                     $drawing.lines.wrappedValue.removeLast()
                 }
@@ -62,16 +59,16 @@ struct DrawingView: View {
             .frame(maxHeight: 100)
         }
         .navigationBarTitle("\(drawing.name)", displayMode: .inline)
-        .navigationBarItems(trailing: Button(action: {
-            showConfirmation = true
-        }) {
+        .navigationBarItems(trailing: Button(action: { showConfirmation = true }) {
             Image(systemName: "trash")
-        }.foregroundColor(.red)
-            .confirmationDialog(Text("Are you sure you want to delete everything?"), isPresented: $showConfirmation) {
-                Button("Clear", role: .destructive) {
-                    $drawing.lines.remove(atOffsets: IndexSet(integersIn: 0..<drawing.lines.count))
-                }
-            })
+        }
+        .foregroundColor(.red)
+        .confirmationDialog(Text("Are you sure you want to delete everything?"), isPresented: $showConfirmation) {
+            Button("Clear", role: .destructive) {
+                $drawing.lines.remove(atOffsets: IndexSet(integersIn: 0..<drawing.lines.count))
+            }
+            Button("Cancel", role: .cancel) {}
+        })
     }
 }
 

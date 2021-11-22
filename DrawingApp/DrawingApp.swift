@@ -8,7 +8,7 @@
 import SwiftUI
 import RealmSwift
 
-let realmApp = RealmSwift.App(id: "draw-obtsw")
+let realmApp = RealmSwift.App(id: "draw-xxxx")
 
 @main
 struct DrawingAppApp: SwiftUI.App {
