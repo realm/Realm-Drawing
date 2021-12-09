@@ -19,6 +19,7 @@ struct BrushView: View {
                 Text("line width")
             }.frame(maxWidth: 100)
             Text(String(format: "%.0f", lineWidth))
+                .foregroundColor(.black)
             Circle()
                 .foregroundColor(color)
                 .frame(width: lineWidth)

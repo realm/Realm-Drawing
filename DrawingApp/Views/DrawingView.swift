@@ -13,34 +13,41 @@ struct DrawingView: View {
     
     @State private var selectedColor: Color = .black
     @State private var selectedLineWidth: CGFloat = 1
+//    @State private var canvasWidth = 1.0
+//    @State private var canvasHeight = 1.0
     
     let engine = DrawingEngine()
     @State private var showConfirmation: Bool = false
     
     var body: some View {
         VStack {
-            Canvas { context, size in
-                for line in drawing.lines {
-                    let path = engine.createPath(for: line.points)
-                    context.stroke(path, with: .color(line.color), style: StrokeStyle(lineWidth: line.lineWidth, lineCap: .round, lineJoin: .round))
+            GeometryReader { geometry in
+                Canvas { context, size in
+                    for line in drawing.lines {
+                        let path = engine.createPath(for: line.linePoints.map { point in
+                            CGPoint(x: point.x * geometry.size.width, y: point.y * geometry.size.height)
+                        })
+                        context.stroke(path, with: .color(line.color), style: StrokeStyle(lineWidth: line.lineWidth, lineCap: .round, lineJoin: .round))
+                    }
                 }
+                .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local)
+                            .onChanged({ value in
+                    let newPoint = PersistablePoint(x: value.location.x / geometry.size.width, y: value.location.y / geometry.size.height)
+                    if value.translation.width + value.translation.height == 0 {
+                        $drawing.lines.append(Line(point: newPoint, color: selectedColor, lineWidth: selectedLineWidth))
+                    } else {
+                        let index = drawing.lines.count - 1
+                        $drawing.lines[index].linePoints.append(newPoint)
+                    }
+                    
+                })
+                            .onEnded({ value in
+                    if let last = drawing.lines.last?.linePoints, last.isEmpty {
+                        $drawing.lines.wrappedValue.removeLast()
+                    }
+                })
+                )
             }
-            .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local).onChanged({ value in
-                let newPoint = value.location
-                if value.translation.width + value.translation.height == 0 {
-                    $drawing.lines.append(Line(point: newPoint, color: selectedColor, lineWidth: selectedLineWidth))
-                } else {
-                    let index = drawing.lines.count - 1
-                    $drawing.lines[index].linePoints.append(PersistablePoint(newPoint))
-                }
-                
-            })
-                        .onEnded({ value in
-                if let last = drawing.lines.last?.linePoints, last.isEmpty {
-                    $drawing.lines.wrappedValue.removeLast()
-                }
-            })
-            )
             HStack {
                 BrushView(color: $selectedColor, lineWidth: $selectedLineWidth)
                 Spacer()
@@ -58,12 +65,13 @@ struct DrawingView: View {
             .padding()
             .frame(maxHeight: 100)
         }
+        .background(.white)
         .navigationBarTitle("\(drawing.name)", displayMode: .inline)
         .navigationBarItems(trailing: Button(action: { showConfirmation = true }) {
             Image(systemName: "trash")
         }
-        .foregroundColor(.red)
-        .confirmationDialog(Text("Are you sure you want to delete everything?"), isPresented: $showConfirmation) {
+                                .foregroundColor(.red)
+                                .confirmationDialog(Text("Are you sure you want to delete everything?"), isPresented: $showConfirmation) {
             Button("Clear", role: .destructive) {
                 $drawing.lines.remove(atOffsets: IndexSet(integersIn: 0..<drawing.lines.count))
             }
