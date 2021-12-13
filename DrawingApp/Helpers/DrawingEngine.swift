@@ -12,7 +12,7 @@ class DrawingEngine {
     
     func createPath(for points: [CGPoint]) -> Path {
         var path = Path()
-        
+        if points.count < 2 { return path }
         if let firstPoint = points.first {
             path.move(to: firstPoint)
         }

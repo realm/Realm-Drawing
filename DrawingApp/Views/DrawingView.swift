@@ -13,9 +13,7 @@ struct DrawingView: View {
     
     @State private var selectedColor: Color = .black
     @State private var selectedLineWidth: CGFloat = 1
-//    @State private var canvasWidth = 1.0
-//    @State private var canvasHeight = 1.0
-    
+
     let engine = DrawingEngine()
     @State private var showConfirmation: Bool = false
     
@@ -24,25 +22,30 @@ struct DrawingView: View {
             GeometryReader { geometry in
                 Canvas { context, size in
                     for line in drawing.lines {
-                        let path = engine.createPath(for: line.linePoints.map { point in
-                            CGPoint(x: point.x * geometry.size.width, y: point.y * geometry.size.height)
-                        })
+                        let path = engine.createPath(for: line.scaledPoints(xScale: geometry.size.width, yScale: geometry.size.height))
+//                        let path = engine.createPath(for: line.linePoints.map { point in
+//                            CGPoint(x: point.x * geometry.size.width, y: point.y * geometry.size.height)
+//                        })
                         context.stroke(path, with: .color(line.color), style: StrokeStyle(lineWidth: line.lineWidth, lineCap: .round, lineJoin: .round))
                     }
                 }
                 .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local)
                             .onChanged({ value in
-                    let newPoint = PersistablePoint(x: value.location.x / geometry.size.width, y: value.location.y / geometry.size.height)
+//                    let newPoint = PersistablePoint(x: value.location.x / geometry.size.width, y: value.location.y / geometry.size.height)
                     if value.translation.width + value.translation.height == 0 {
-                        $drawing.lines.append(Line(point: newPoint, color: selectedColor, lineWidth: selectedLineWidth))
+                        $drawing.lines.append(Line(x: value.location.x / geometry.size.width, y: value.location.y / geometry.size.height, color: selectedColor, lineWidth: selectedLineWidth))
+//                        $drawing.lines.append(Line(point: newPoint, color: selectedColor, lineWidth: selectedLineWidth))
                     } else {
                         let index = drawing.lines.count - 1
-                        $drawing.lines[index].linePoints.append(newPoint)
+                        $drawing.lines[index].x.append(value.location.x / geometry.size.width)
+                        $drawing.lines[index].y.append(value.location.y / geometry.size.height)
+//                        $drawing.lines[index].linePoints.append(newPoint)
                     }
                     
                 })
                             .onEnded({ value in
-                    if let last = drawing.lines.last?.linePoints, last.isEmpty {
+                    if let last = drawing.lines.last?.x, last.isEmpty {
+//                    if let last = drawing.lines.last?.linePoints, last.isEmpty {
                         $drawing.lines.wrappedValue.removeLast()
                     }
                 })
