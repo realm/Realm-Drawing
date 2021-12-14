@@ -41,9 +41,9 @@ extension Line {
         }
     }
     
-    convenience init (point: CGPoint, color: Color, lineWidth: CGFloat) {
+    convenience init (point: PersistablePoint, color: Color, lineWidth: CGFloat) {
         self.init()
-        self.linePoints.append(PersistablePoint(point))
+        self.linePoints.append(point)
         self.color = color
         self.width = lineWidth
     }
