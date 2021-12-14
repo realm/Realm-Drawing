@@ -13,8 +13,6 @@ struct DrawingView: View {
     
     @State private var selectedColor: Color = .black
     @State private var selectedLineWidth: CGFloat = 1
-//    @State private var canvasWidth = 1.0
-//    @State private var canvasHeight = 1.0
     
     let engine = DrawingEngine()
     @State private var showConfirmation: Bool = false
@@ -39,7 +37,6 @@ struct DrawingView: View {
                         let index = drawing.lines.count - 1
                         $drawing.lines[index].linePoints.append(newPoint)
                     }
-                    
                 })
                             .onEnded({ value in
                     if let last = drawing.lines.last?.linePoints, last.isEmpty {
