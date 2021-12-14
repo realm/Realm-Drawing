@@ -16,9 +16,11 @@ class DrawingEngine {
         if let firstPoint = points.first {
             path.move(to: firstPoint)
         }
-        for index in 1..<points.count {
-            let mid = calculateMidPoint(points[index - 1], points[index])
-            path.addQuadCurve(to: mid, control: points[index - 1])
+        if points.count > 1 {
+            for index in 1..<points.count {
+                let mid = calculateMidPoint(points[index - 1], points[index])
+                path.addQuadCurve(to: mid, control: points[index - 1])
+            }
         }
         if let last = points.last {
             path.addLine(to: last)

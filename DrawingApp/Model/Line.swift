@@ -47,4 +47,15 @@ extension Line {
         self.color = color
         self.width = lineWidth
     }
+    
+    convenience init (points: [CGPoint], color: Color, lineWidth: CGFloat, xScale: CGFloat, yScale: CGFloat) {
+        self.init()
+        let persistablePoints = RealmSwift.List<PersistablePoint>()
+        points.forEach() { point in
+            persistablePoints.append(PersistablePoint(x: point.x / xScale, y: point.y / yScale))
+        }
+        self.linePoints = persistablePoints
+        self.color = color
+        self.width = lineWidth
+    }
 }
