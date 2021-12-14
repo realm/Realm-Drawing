@@ -15,6 +15,7 @@ struct DrawingPickerView: View {
     
     @State private var isWaiting = true
     @State private var showingNewDrawing = false
+    @State private var showingSettings = false
     
     var body: some View {
         ZStack {
@@ -37,6 +38,7 @@ struct DrawingPickerView: View {
             if isWaiting {
                 ProgressView()
             }
+            NavigationLink(destination: SettingsView(isPresented: $showingSettings), isActive: $showingSettings) {}
         }
         .onAppear(perform: waitABit)
         .sheet(isPresented: $showingNewDrawing) {
@@ -44,9 +46,16 @@ struct DrawingPickerView: View {
                 .environment(\.realmConfiguration, realmApp.currentUser!.configuration(partitionValue: "user=\(username)"))
         }
         .navigationBarTitle("\(username)'s Drawings", displayMode: .inline)
-        .navigationBarItems(trailing: Button(action: { showingNewDrawing.toggle() }) {
-            Image(systemName: "plus")
-        })
+        .toolbar {
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                Button(action: { showingSettings.toggle() }) {
+                    Image(systemName: "gear")
+                }
+                Button(action: { showingNewDrawing.toggle() }) {
+                    Image(systemName: "plus")
+                }
+            }
+        }
     }
     
     private func waitABit() {
@@ -61,5 +70,6 @@ struct DrawingPickerView_Previews: PreviewProvider {
         NavigationView {
             DrawingPickerView(username: "Andrew")
         }
+        .currentDeviceNavigationViewStyle(alwaysStacked: true)
     }
 }

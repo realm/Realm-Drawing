@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A1BFA092768AB4500301ED1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1BFA082768AB4500301ED1 /* SettingsView.swift */; };
 		0AB933892746738E0011F73B /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 0AB933882746738E0011F73B /* Realm */; };
 		0AB9338B2746738E0011F73B /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0AB9338A2746738E0011F73B /* RealmSwift */; };
 		0AB93390274681F30011F73B /* Drawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB9338F274681F30011F73B /* Drawing.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A1BFA082768AB4500301ED1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		0AB9338F274681F30011F73B /* Drawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawing.swift; sourceTree = "<group>"; };
 		0AB9339127468C3C0011F73B /* PersistableColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistableColor.swift; sourceTree = "<group>"; };
 		0AB9339327468F780011F73B /* PersistablePoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistablePoint.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				0AB9339E2746A2B10011F73B /* LogoutButton.swift */,
 				0AB933A02746A7670011F73B /* NewDrawingView.swift */,
 				0AB933A22746D7FA0011F73B /* BrushView.swift */,
+				0A1BFA082768AB4500301ED1 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				0AB9339B2746A0F90011F73B /* DrawingPickerView.swift in Sources */,
 				0AB933A32746D7FA0011F73B /* BrushView.swift in Sources */,
 				0AB9339227468C3C0011F73B /* PersistableColor.swift in Sources */,
+				0A1BFA092768AB4500301ED1 /* SettingsView.swift in Sources */,
 				17197DE4267CAE1200D402F2 /* DrawingEngine.swift in Sources */,
 				0AB93390274681F30011F73B /* Drawing.swift in Sources */,
 				0AB9339427468F780011F73B /* PersistablePoint.swift in Sources */,
