@@ -8,14 +8,22 @@
 import SwiftUI
 import RealmSwift
 
+func * (left: CGPoint, right: CGSize) -> CGPoint {
+    return CGPoint(x: left.x * right.width, y: left.y * right.height)
+}
+func / (left: CGPoint, right: CGSize) -> CGPoint {
+    return CGPoint(x: left.x / right.width, y: left.y / right.height)
+}
+
 struct DrawingView: View {
     @AppStorage("delayPersistance") var delayPersistance = false
     @ObservedRealmObject var drawing: Drawing
     
     @State private var selectedColor: Color = .black
     @State private var selectedLineWidth: CGFloat = 1
-    @State private var currentPoints = [CGPoint]()
-    
+    @State private var currentLine = Line()
+    @StateRealmObject private var unmanagedLine = Line()
+
     let engine = DrawingEngine()
     @State private var showConfirmation: Bool = false
     
@@ -24,27 +32,16 @@ struct DrawingView: View {
             GeometryReader { geometry in
                 Canvas { context, size in
                     for line in drawing.lines {
-                        let path = engine.createPath(for: line.linePoints.map { point in
-                            CGPoint(x: point.x * geometry.size.width, y: point.y * geometry.size.height)
-                        })
-                        context.stroke(path, with: .color(line.color), style: StrokeStyle(lineWidth: line.lineWidth, lineCap: .round, lineJoin: .round))
+                        drawLine(context: context, size: geometry.size, line: line)
                     }
-                    if delayPersistance {
-                        let path = engine.createPath(for: currentPoints)
-                        context.stroke(path, with: .color(selectedColor), style: StrokeStyle(lineWidth: selectedLineWidth, lineCap: .round, lineJoin: .round))
-                    }
+                    drawLine(context: context, size: geometry.size, line: unmanagedLine)
                 }
                 .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local)
                             .onChanged({ value in
-                    positionChanged(location: value.location,
-                                    translation: value.translation,
-                                    width: geometry.size.width,
-                                    height: geometry.size.height)
+                    positionChanged(location: value.location / geometry.size,
+                                    translation: value.translation)
                 })
-                            .onEnded({ _ in
-                    lineEnded(width: geometry.size.width, height: geometry.size.height)
-                })
-                )
+                            .onEnded { _ in lineEnded() })
             }
             // TODO: Move to a new View
             HStack {
@@ -77,37 +74,42 @@ struct DrawingView: View {
             Button("Cancel", role: .cancel) {}
         })
     }
-    
-    private func positionChanged(location: CGPoint, translation: CGSize, width: Double, height: Double) {
-        let newPoint = PersistablePoint(x: location.x / width, y: location.y / height)
-        if translation.width + translation.height == 0 {
-            if delayPersistance {
-                currentPoints = [CGPoint]()
-            } else {
-                $drawing.lines.append(Line(point: newPoint, color: selectedColor, lineWidth: selectedLineWidth))
-            }
-        } else {
-            let index = drawing.lines.count - 1
-            if !delayPersistance {
-                $drawing.lines[index].linePoints.append(newPoint)
-            }
-        }
-        if delayPersistance {
-            currentPoints.append(location)
-        }
+
+    private func drawLine(context: GraphicsContext, size: CGSize, line: Line) {
+        guard !line.points.isEmpty else { return }
+        let path = engine.createPath(for: line.points.map { $0 * size })
+        context.stroke(path, with: .color(line.color),
+                       style: StrokeStyle(lineWidth: line.width, lineCap: .round, lineJoin: .round))
     }
     
-    private func lineEnded(width: Double, height: Double) {
-        if delayPersistance {
-            if !currentPoints.isEmpty {
-                $drawing.lines.append(Line(points: currentPoints, color: selectedColor, lineWidth: selectedLineWidth, xScale: width, yScale: height))
+    private func positionChanged(location newPoint: CGPoint, translation: CGSize) {
+        if translation == CGSize(width: 0, height: 0) {
+            if delayPersistance {
+                unmanagedLine.color = selectedColor
+                unmanagedLine.width = selectedLineWidth
+                currentLine = unmanagedLine
+            } else {
+                currentLine = Line(color: selectedColor, lineWidth: selectedLineWidth)
+                $drawing.lines.append(currentLine)
             }
-            currentPoints = [CGPoint]()
+        }
+        currentLine.realm?.beginWrite()
+        currentLine.points.append(newPoint)
+        try! currentLine.realm?.commitWrite()
+    }
+    
+    private func lineEnded() {
+        if delayPersistance {
+            if !currentLine.points.isEmpty {
+                $drawing.lines.append(Line(value: currentLine))
+            }
+            currentLine.points.removeAll()
         } else {
-            if let last = drawing.lines.last?.linePoints, last.isEmpty {
+            if currentLine.points.isEmpty {
                 $drawing.lines.wrappedValue.removeLast()
             }
         }
+        currentLine = Line()
     }
 }
 

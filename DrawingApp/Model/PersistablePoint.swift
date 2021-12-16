@@ -5,31 +5,26 @@
 //  Created by Andrew Morgan on 18/11/2021.
 //
 
-import SwiftUI
+import CoreGraphics
 import RealmSwift
 
-class PersistablePoint: EmbeddedObject, ObjectKeyIdentifiable {
+extension CGPoint: CustomPersistable {
+    public typealias PersistedType = PersistablePoint
+    public init(persistedValue: PersistablePoint) {
+        self.init(x: persistedValue.x, y: persistedValue.y)
+    }
+    public var persistableValue: PersistablePoint {
+        return PersistablePoint(x: x, y: y)
+    }
+}
+
+public class PersistablePoint: EmbeddedObject, ObjectKeyIdentifiable {
     @Persisted var x = 0.0
     @Persisted var y = 0.0
-    
-    convenience init(_ point: CGPoint) {
-        self.init()
-        self.point = point
-    }
-    
+
     convenience init(x: Double, y: Double) {
         self.init()
         self.x = x
         self.y = y
-    }
-    
-    var point: CGPoint {
-        get {
-            CGPoint(x: x, y: y)
-        }
-        set {
-            x = Double(newValue.x)
-            y = Double(newValue.y)
-        }
     }
 }
