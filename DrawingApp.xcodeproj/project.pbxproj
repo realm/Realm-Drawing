@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A1BFA092768AB4500301ED1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1BFA082768AB4500301ED1 /* SettingsView.swift */; };
+		0A560B6F27764E4D00A277BB /* ToolBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A560B6E27764E4D00A277BB /* ToolBarView.swift */; };
 		0AB933892746738E0011F73B /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 0AB933882746738E0011F73B /* Realm */; };
 		0AB9338B2746738E0011F73B /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0AB9338A2746738E0011F73B /* RealmSwift */; };
 		0AB93390274681F30011F73B /* Drawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB9338F274681F30011F73B /* Drawing.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		0A1BFA082768AB4500301ED1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		0A560B6E27764E4D00A277BB /* ToolBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarView.swift; sourceTree = "<group>"; };
 		0AB9338F274681F30011F73B /* Drawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawing.swift; sourceTree = "<group>"; };
 		0AB9339127468C3C0011F73B /* PersistableColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistableColor.swift; sourceTree = "<group>"; };
 		0AB9339327468F780011F73B /* PersistablePoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistablePoint.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				0AB933982746A0970011F73B /* ContentView.swift */,
 				0AB9339A2746A0F90011F73B /* DrawingPickerView.swift */,
 				17197DDF267CA77500D402F2 /* DrawingView.swift */,
+				0A560B6E27764E4D00A277BB /* ToolBarView.swift */,
 				0AB9339C2746A1EC0011F73B /* LoginView.swift */,
 				0AB9339E2746A2B10011F73B /* LogoutButton.swift */,
 				0AB933A02746A7670011F73B /* NewDrawingView.swift */,
@@ -220,6 +223,7 @@
 				0AB93390274681F30011F73B /* Drawing.swift in Sources */,
 				0AB9339427468F780011F73B /* PersistablePoint.swift in Sources */,
 				0AB9339D2746A1EC0011F73B /* LoginView.swift in Sources */,
+				0A560B6F27764E4D00A277BB /* ToolBarView.swift in Sources */,
 				17197DE0267CA77500D402F2 /* DrawingView.swift in Sources */,
 				17197DE2267CA7D200D402F2 /* Line.swift in Sources */,
 			);
