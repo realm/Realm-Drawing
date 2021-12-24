@@ -46,23 +46,7 @@ struct DrawingView: View {
                 })
                 )
             }
-            // TODO: Move to a new View
-            HStack {
-                BrushView(color: $selectedColor, lineWidth: $selectedLineWidth)
-                Spacer()
-                Button {
-                    let lastIndex = drawing.lines.count - 1
-                    if lastIndex >= 0 {
-                        $drawing.lines.remove(at: lastIndex)
-                    }
-                } label: {
-                    Image(systemName: "arrow.uturn.backward.circle")
-                        .imageScale(.large)
-                }
-                .disabled(drawing.lines.count == 0)
-            }
-            .padding()
-            .frame(maxHeight: 100)
+            ToolBarView(drawing: drawing, color: $selectedColor, lineWidth: $selectedLineWidth)
         }
         .background(.white)
         .navigationBarTitle("\(drawing.name)", displayMode: .inline)
@@ -116,5 +100,6 @@ struct DrawingView_Previews: PreviewProvider {
         NavigationView {
             DrawingView(drawing: Drawing())
         }
+        .currentDeviceNavigationViewStyle(alwaysStacked: true)
     }
 }
