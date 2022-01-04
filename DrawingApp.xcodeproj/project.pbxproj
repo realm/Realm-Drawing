@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A1BFA092768AB4500301ED1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1BFA082768AB4500301ED1 /* SettingsView.swift */; };
+		0A1D7E4227848B930093B615 /* InProgressLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1D7E4127848B930093B615 /* InProgressLineView.swift */; };
 		0A560B6F27764E4D00A277BB /* ToolBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A560B6E27764E4D00A277BB /* ToolBarView.swift */; };
 		0AB933892746738E0011F73B /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 0AB933882746738E0011F73B /* Realm */; };
 		0AB9338B2746738E0011F73B /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0AB9338A2746738E0011F73B /* RealmSwift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		0A1BFA082768AB4500301ED1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		0A1D7E4127848B930093B615 /* InProgressLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InProgressLineView.swift; sourceTree = "<group>"; };
 		0A560B6E27764E4D00A277BB /* ToolBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarView.swift; sourceTree = "<group>"; };
 		0AB9338F274681F30011F73B /* Drawing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawing.swift; sourceTree = "<group>"; };
 		0AB9339127468C3C0011F73B /* PersistableColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistableColor.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				0AB933982746A0970011F73B /* ContentView.swift */,
 				0AB9339A2746A0F90011F73B /* DrawingPickerView.swift */,
 				17197DDF267CA77500D402F2 /* DrawingView.swift */,
+				0A1D7E4127848B930093B615 /* InProgressLineView.swift */,
 				0A560B6E27764E4D00A277BB /* ToolBarView.swift */,
 				0AB9339C2746A1EC0011F73B /* LoginView.swift */,
 				0AB9339E2746A2B10011F73B /* LogoutButton.swift */,
@@ -217,6 +220,7 @@
 				17AD2BB0267CA03400708459 /* DrawingApp.swift in Sources */,
 				0AB9339B2746A0F90011F73B /* DrawingPickerView.swift in Sources */,
 				0AB933A32746D7FA0011F73B /* BrushView.swift in Sources */,
+				0A1D7E4227848B930093B615 /* InProgressLineView.swift in Sources */,
 				0AB9339227468C3C0011F73B /* PersistableColor.swift in Sources */,
 				0A1BFA092768AB4500301ED1 /* SettingsView.swift in Sources */,
 				17197DE4267CAE1200D402F2 /* DrawingEngine.swift in Sources */,
@@ -439,7 +443,7 @@
 			repositoryURL = "https://github.com/realm/realm-cocoa";
 			requirement = {
 				kind = exactVersion;
-				version = 10.20.0;
+				version = 10.20.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
