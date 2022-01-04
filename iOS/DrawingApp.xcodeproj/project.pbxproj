@@ -30,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A0E1CA82784A6630087D3C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0A1BFA082768AB4500301ED1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		0A1D7E4127848B930093B615 /* InProgressLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InProgressLineView.swift; sourceTree = "<group>"; };
 		0A560B6E27764E4D00A277BB /* ToolBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarView.swift; sourceTree = "<group>"; };
@@ -119,6 +120,7 @@
 		17AD2BAE267CA03400708459 /* DrawingApp */ = {
 			isa = PBXGroup;
 			children = (
+				0A0E1CA82784A6630087D3C2 /* Info.plist */,
 				17AD2BAF267CA03400708459 /* DrawingApp.swift */,
 				0AB933972746A0850011F73B /* Views */,
 				0AB9338E274681DC0011F73B /* Model */,
@@ -363,6 +365,7 @@
 				DEVELOPMENT_TEAM = CV5PJSAH7N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DrawingApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -394,6 +397,7 @@
 				DEVELOPMENT_TEAM = CV5PJSAH7N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DrawingApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
