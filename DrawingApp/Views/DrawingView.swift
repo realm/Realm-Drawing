@@ -22,29 +22,30 @@ struct DrawingView: View {
     var body: some View {
         VStack {
             GeometryReader { geometry in
-                Canvas { context, size in
-                    for line in drawing.lines {
-                        let path = engine.createPath(for: line.linePoints.map { point in
-                            CGPoint(x: point.x * geometry.size.width, y: point.y * geometry.size.height)
-                        })
-                        context.stroke(path, with: .color(line.color), style: StrokeStyle(lineWidth: line.lineWidth, lineCap: .round, lineJoin: .round))
+                ZStack {
+                    Canvas { context, size in
+                        for line in drawing.lines {
+                            let path = engine.createPath(for: line.linePoints.map { point in
+                                CGPoint(x: point.x * geometry.size.width, y: point.y * geometry.size.height)
+                            })
+                            context.stroke(path, with: .color(line.color), style: StrokeStyle(lineWidth: line.lineWidth, lineCap: .round, lineJoin: .round))
+                        }
                     }
+                    .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local)
+                                .onChanged({ value in
+                        positionChanged(location: value.location,
+                                        translation: value.translation,
+                                        width: geometry.size.width,
+                                        height: geometry.size.height)
+                    })
+                                .onEnded({ _ in
+                        lineEnded(width: geometry.size.width, height: geometry.size.height)
+                    })
+                    )
                     if delayPersistance {
-                        let path = engine.createPath(for: currentPoints)
-                        context.stroke(path, with: .color(selectedColor), style: StrokeStyle(lineWidth: selectedLineWidth, lineCap: .round, lineJoin: .round))
+                        InProgressLineView(drawing: drawing, color: selectedColor, lineWidth: selectedLineWidth, engine: engine, geoSize: geometry.size)
                     }
                 }
-                .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local)
-                            .onChanged({ value in
-                    positionChanged(location: value.location,
-                                    translation: value.translation,
-                                    width: geometry.size.width,
-                                    height: geometry.size.height)
-                })
-                            .onEnded({ _ in
-                    lineEnded(width: geometry.size.width, height: geometry.size.height)
-                })
-                )
             }
             ToolBarView(drawing: drawing, color: $selectedColor, lineWidth: $selectedLineWidth)
         }
@@ -65,9 +66,7 @@ struct DrawingView: View {
     private func positionChanged(location: CGPoint, translation: CGSize, width: Double, height: Double) {
         let newPoint = PersistablePoint(x: location.x / width, y: location.y / height)
         if translation.width + translation.height == 0 {
-            if delayPersistance {
-                currentPoints = [CGPoint]()
-            } else {
+            if !delayPersistance {
                 $drawing.lines.append(Line(point: newPoint, color: selectedColor, lineWidth: selectedLineWidth))
             }
         } else {
@@ -76,18 +75,10 @@ struct DrawingView: View {
                 $drawing.lines[index].linePoints.append(newPoint)
             }
         }
-        if delayPersistance {
-            currentPoints.append(location)
-        }
     }
     
     private func lineEnded(width: Double, height: Double) {
-        if delayPersistance {
-            if !currentPoints.isEmpty {
-                $drawing.lines.append(Line(points: currentPoints, color: selectedColor, lineWidth: selectedLineWidth, xScale: width, yScale: height))
-            }
-            currentPoints = [CGPoint]()
-        } else {
+        if !delayPersistance {
             if let last = drawing.lines.last?.linePoints, last.isEmpty {
                 $drawing.lines.wrappedValue.removeLast()
             }
