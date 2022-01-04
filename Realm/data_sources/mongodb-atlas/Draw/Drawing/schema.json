@@ -1,0 +1,78 @@
+{
+    "bsonType": "object",
+    "properties": {
+        "_id": {
+            "bsonType": "objectId"
+        },
+        "lines": {
+            "bsonType": "array",
+            "items": {
+                "bsonType": "object",
+                "properties": {
+                    "lineColor": {
+                        "bsonType": "object",
+                        "properties": {
+                            "blue": {
+                                "bsonType": "double"
+                            },
+                            "green": {
+                                "bsonType": "double"
+                            },
+                            "opacity": {
+                                "bsonType": "double"
+                            },
+                            "red": {
+                                "bsonType": "double"
+                            }
+                        },
+                        "required": [
+                            "red",
+                            "green",
+                            "blue",
+                            "opacity"
+                        ],
+                        "title": "PersistableColor"
+                    },
+                    "linePoints": {
+                        "bsonType": "array",
+                        "items": {
+                            "bsonType": "object",
+                            "properties": {
+                                "x": {
+                                    "bsonType": "double"
+                                },
+                                "y": {
+                                    "bsonType": "double"
+                                }
+                            },
+                            "required": [
+                                "x",
+                                "y"
+                            ],
+                            "title": "PersistablePoint"
+                        }
+                    },
+                    "lineWidth": {
+                        "bsonType": "double"
+                    }
+                },
+                "required": [
+                    "lineWidth"
+                ],
+                "title": "Line"
+            }
+        },
+        "name": {
+            "bsonType": "string"
+        },
+        "partition": {
+            "bsonType": "string"
+        }
+    },
+    "required": [
+        "_id",
+        "partition",
+        "name"
+    ],
+    "title": "Drawing"
+}
