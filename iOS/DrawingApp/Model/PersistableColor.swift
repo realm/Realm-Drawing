@@ -8,7 +8,7 @@
 import RealmSwift
 import SwiftUI
 
-class PersistableColor: EmbeddedObject {
+public class PersistableColor: EmbeddedObject {
     @Persisted var red: Double = 0
     @Persisted var green: Double = 0
     @Persisted var blue: Double = 0
@@ -27,8 +27,18 @@ class PersistableColor: EmbeddedObject {
             }
         }
     }
+}
+
+extension Color: CustomPersistable {
+    public typealias PersistedType = PersistableColor
     
-    var color: Color {
-        Color(.sRGB, red: red, green: green, blue: blue, opacity: opacity)
+    public init(persistedValue: PersistableColor) { self.init(
+        .sRGB, red: persistedValue.red,
+        green: persistedValue.green,
+        blue: persistedValue.blue,
+        opacity: persistedValue.opacity) }
+    
+    public var persistableValue: PersistableColor {
+        PersistableColor(color: self)
     }
 }

@@ -28,7 +28,7 @@ struct DrawingView: View {
                             let path = engine.createPath(for: line.linePoints.map { point in
                                 CGPoint(x: point.x * geometry.size.width, y: point.y * geometry.size.height)
                             })
-                            context.stroke(path, with: .color(line.color), style: StrokeStyle(lineWidth: line.lineWidth, lineCap: .round, lineJoin: .round))
+                            context.stroke(path, with: .color(line.lineColor), style: StrokeStyle(lineWidth: line.lineWidth, lineCap: .round, lineJoin: .round))
                         }
                     }
                     .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local)
@@ -64,7 +64,7 @@ struct DrawingView: View {
     }
     
     private func positionChanged(location: CGPoint, translation: CGSize, width: Double, height: Double) {
-        let newPoint = PersistablePoint(x: location.x / width, y: location.y / height)
+        let newPoint = CGPoint(x: location.x / width, y: location.y / height)
         if translation.width + translation.height == 0 {
             if !delayPersistance {
                 $drawing.lines.append(Line(point: newPoint, color: selectedColor, lineWidth: selectedLineWidth))
