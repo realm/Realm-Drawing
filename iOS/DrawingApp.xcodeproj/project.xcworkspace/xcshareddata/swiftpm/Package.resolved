@@ -5,9 +5,9 @@
         "package": "Realm",
         "repositoryURL": "https://github.com/realm/realm-cocoa",
         "state": {
-          "branch": null,
-          "revision": "e83cc9f28e8bccd477b6b81cee521c02239d2773",
-          "version": "10.20.2"
+          "branch": "tg/custom-type-mappings",
+          "revision": "e3c1829dad30fda9e79264edd347ee0faa1931bb",
+          "version": null
         }
       },
       {
