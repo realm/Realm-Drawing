@@ -8,28 +8,21 @@
 import SwiftUI
 import RealmSwift
 
-class PersistablePoint: EmbeddedObject, ObjectKeyIdentifiable {
+public class PersistablePoint: EmbeddedObject, ObjectKeyIdentifiable {
     @Persisted var x = 0.0
     @Persisted var y = 0.0
     
     convenience init(_ point: CGPoint) {
         self.init()
-        self.point = point
+        self.x = point.x
+        self.y = point.y
     }
+}
+
+extension CGPoint: CustomPersistable {
+    public typealias PersistedType = PersistablePoint
     
-    convenience init(x: Double, y: Double) {
-        self.init()
-        self.x = x
-        self.y = y
-    }
+    public init(persistedValue: PersistablePoint) { self.init(x: persistedValue.x, y: persistedValue.y) }
     
-    var point: CGPoint {
-        get {
-            CGPoint(x: x, y: y)
-        }
-        set {
-            x = Double(newValue.x)
-            y = Double(newValue.y)
-        }
-    }
+    public var persistableValue: PersistablePoint { PersistablePoint(self) }
 }

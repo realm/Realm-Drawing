@@ -15,11 +15,11 @@ struct InProgressLineView: View {
     let engine: DrawingEngine
     let geoSize: CGSize
     
-    @State private var currentPoints = [CGPoint]()
+    @State private var currentPoints = RealmSwift.List<CGPoint>()
     
     var body: some View {
         Canvas { context, size in
-            let path = engine.createPath(for: currentPoints)
+            let path = engine.createPath(for: Array(currentPoints))
             context.stroke(path, with: .color(color), style: StrokeStyle(lineWidth: lineWidth, lineCap: .round, lineJoin: .round))
         }
         .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local)
@@ -37,7 +37,7 @@ struct InProgressLineView: View {
     
     private func positionChanged(location: CGPoint, translation: CGSize, width: Double, height: Double) {
         if translation.width + translation.height == 0 {
-            currentPoints = [CGPoint]()
+            currentPoints = RealmSwift.List<CGPoint>()
         }
         currentPoints.append(location)
     }
@@ -46,6 +46,6 @@ struct InProgressLineView: View {
         if !currentPoints.isEmpty {
             $drawing.lines.append(Line(points: currentPoints, color: color, lineWidth: lineWidth, xScale: width, yScale: height))
         }
-        currentPoints = [CGPoint]()
+        currentPoints = RealmSwift.List<CGPoint>()
     }
 }
