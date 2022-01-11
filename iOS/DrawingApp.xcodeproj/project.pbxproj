@@ -446,8 +446,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-cocoa";
 			requirement = {
-				branch = "tg/custom-type-mappings";
-				kind = branch;
+				kind = exactVersion;
+				version = 10.21.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
