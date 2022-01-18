@@ -13,7 +13,6 @@ struct DrawingPickerView: View {
     
     let username: String
     
-    @State private var isWaiting = true
     @State private var showingNewDrawing = false
     @State private var showingSettings = false
     
@@ -35,12 +34,8 @@ struct DrawingPickerView: View {
                     }
                 }
             }
-            if isWaiting {
-                ProgressView()
-            }
             NavigationLink(destination: SettingsView(isPresented: $showingSettings), isActive: $showingSettings) {}
         }
-        .onAppear(perform: waitABit)
         .sheet(isPresented: $showingNewDrawing) {
             NewDrawingView()
                 .environment(\.realmConfiguration, realmApp.currentUser!.configuration(partitionValue: "user=\(username)"))
@@ -55,12 +50,6 @@ struct DrawingPickerView: View {
                     Image(systemName: "plus")
                 }
             }
-        }
-    }
-    
-    private func waitABit() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            isWaiting = false
         }
     }
 }

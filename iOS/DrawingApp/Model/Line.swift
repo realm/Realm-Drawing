@@ -34,8 +34,6 @@ extension Line {
 
 extension CGFloat: CustomPersistable {
     public typealias PersistedType = Double
-    
     public init(persistedValue: Double) { self.init(persistedValue) }
-    
     public var persistableValue: Double { Double(self) }
 }
