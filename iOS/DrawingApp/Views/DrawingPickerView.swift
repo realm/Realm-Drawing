@@ -14,7 +14,6 @@ struct DrawingPickerView: View {
     let username: String
     
     @State private var showingNewDrawing = false
-    @State private var showingSettings = false
     
     var body: some View {
         ZStack {
@@ -34,7 +33,6 @@ struct DrawingPickerView: View {
                     }
                 }
             }
-            NavigationLink(destination: SettingsView(isPresented: $showingSettings), isActive: $showingSettings) {}
         }
         .sheet(isPresented: $showingNewDrawing) {
             NewDrawingView()
@@ -43,9 +41,6 @@ struct DrawingPickerView: View {
         .navigationBarTitle("\(username)'s Drawings", displayMode: .inline)
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
-                Button(action: { showingSettings.toggle() }) {
-                    Image(systemName: "gear")
-                }
                 Button(action: { showingNewDrawing.toggle() }) {
                     Image(systemName: "plus")
                 }

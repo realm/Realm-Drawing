@@ -11,7 +11,7 @@ struct ContentView: View {
     @State var username = ""
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             Group {
                 if username == "" {
                     LoginView(username: $username)

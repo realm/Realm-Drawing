@@ -9,7 +9,6 @@ import SwiftUI
 import RealmSwift
 
 struct DrawingView: View {
-    @AppStorage("delayPersistance") var delayPersistance = false
     @ObservedRealmObject var drawing: Drawing
     
     @State private var selectedColor: Color = .black
@@ -42,9 +41,6 @@ struct DrawingView: View {
                         lineEnded(width: geometry.size.width, height: geometry.size.height)
                     })
                     )
-                    if delayPersistance {
-                        InProgressLineView(drawing: drawing, color: selectedColor, lineWidth: selectedLineWidth, engine: engine, geoSize: geometry.size)
-                    }
                 }
             }
             ToolBarView(drawing: drawing, color: $selectedColor, lineWidth: $selectedLineWidth)
@@ -66,22 +62,16 @@ struct DrawingView: View {
     private func positionChanged(location: CGPoint, translation: CGSize, width: Double, height: Double) {
         let newPoint = CGPoint(x: location.x / width, y: location.y / height)
         if translation.width + translation.height == 0 {
-            if !delayPersistance {
-                $drawing.lines.append(Line(point: newPoint, color: selectedColor, lineWidth: selectedLineWidth))
-            }
+            $drawing.lines.append(Line(point: newPoint, color: selectedColor, lineWidth: selectedLineWidth))
         } else {
             let index = drawing.lines.count - 1
-            if !delayPersistance {
-                $drawing.lines[index].linePoints.append(newPoint)
-            }
+            $drawing.lines[index].linePoints.append(newPoint)
         }
     }
     
     private func lineEnded(width: Double, height: Double) {
-        if !delayPersistance {
-            if let last = drawing.lines.last?.linePoints, last.isEmpty {
-                $drawing.lines.wrappedValue.removeLast()
-            }
+        if let last = drawing.lines.last?.linePoints, last.isEmpty {
+            $drawing.lines.wrappedValue.removeLast()
         }
     }
 }
