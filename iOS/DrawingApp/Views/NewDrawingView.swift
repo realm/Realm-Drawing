@@ -13,6 +13,8 @@ struct NewDrawingView: View {
     
     @ObservedResults(Drawing.self) var drawings
     
+    let addDrawing: (_ : String) -> Void
+    
     @State private var drawingName = ""
     
     var body: some View {
@@ -35,13 +37,15 @@ struct NewDrawingView: View {
     }
     
     private func newDrawing() {
-        $drawings.append(Drawing(drawingName))
+        addDrawing(drawingName)
         presentationMode.wrappedValue.dismiss()
     }
 }
 
+private func doNothing(_: String) { }
+
 struct NewDrawingView_Previews: PreviewProvider {
     static var previews: some View {
-        NewDrawingView()
+        NewDrawingView(addDrawing: doNothing)
     }
 }

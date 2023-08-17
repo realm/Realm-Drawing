@@ -9,7 +9,10 @@ import SwiftUI
 import RealmSwift
 
 struct DrawingPickerView: View {
-    @ObservedResults(Drawing.self) var drawings
+    @ObservedResults(DrawingName.self) var drawings
+    @Environment(\.realm) var realm
+    
+    @State private var inProgress = false
     
     let username: String
     
@@ -20,8 +23,12 @@ struct DrawingPickerView: View {
             List {
                 ForEach(drawings) { drawing in
                     HStack {
-                        NavigationLink(destination: DrawingView(drawing: drawing)) {
-                            Text(drawing.name)
+                        if let currentUser = realmApp.currentUser {
+                            NavigationLink(destination: DrawingWrapperView(drawingName: drawing)
+                            .environment(\.realmConfiguration,
+                                          currentUser.flexibleSyncConfiguration())) {
+                                Text(drawing.name)
+                            }
                         }
                     }
                     .swipeActions(edge: .trailing, allowsFullSwipe: true) {
@@ -33,10 +40,12 @@ struct DrawingPickerView: View {
                     }
                 }
             }
+            if inProgress {
+                ProgressView()
+            }
         }
         .sheet(isPresented: $showingNewDrawing) {
-            NewDrawingView()
-                .environment(\.realmConfiguration, realmApp.currentUser!.configuration(partitionValue: "user=\(username)"))
+            NewDrawingView(addDrawing: addDrawing)
         }
         .navigationBarTitle("\(username)'s Drawings", displayMode: .inline)
         .toolbar {
@@ -46,6 +55,28 @@ struct DrawingPickerView: View {
                 }
             }
         }
+        .onAppear(perform: setSubscriptions)
+    }
+    
+    private func setSubscriptions() {
+        let subscriptions = realm.subscriptions
+        if subscriptions.first(named: "drawingNames") == nil {
+            inProgress = true
+            subscriptions.update() {
+            subscriptions.append(QuerySubscription<DrawingName>(name: "drawingNames") { drawing in
+                drawing.author == username
+            })
+            } onComplete: { _ in
+                Task { @MainActor in
+                    inProgress = false
+                }
+            }
+        }
+    }
+    
+    private func addDrawing(name: String) {
+        let drawing = DrawingName(author: username, name: name)
+        $drawings.append(drawing)
     }
 }
 

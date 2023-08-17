@@ -4,6 +4,9 @@
         "_id": {
             "bsonType": "objectId"
         },
+        "author": {
+            "bsonType": "string"
+        },
         "lines": {
             "bsonType": "array",
             "items": {
@@ -64,14 +67,11 @@
         },
         "name": {
             "bsonType": "string"
-        },
-        "partition": {
-            "bsonType": "string"
         }
     },
     "required": [
         "_id",
-        "partition",
+        "author",
         "name"
     ],
     "title": "Drawing"

@@ -26,6 +26,8 @@
 		17AD2BB0267CA03400708459 /* DrawingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AD2BAF267CA03400708459 /* DrawingApp.swift */; };
 		17AD2BB4267CA03600708459 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17AD2BB3267CA03600708459 /* Assets.xcassets */; };
 		17AD2BB7267CA03600708459 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17AD2BB6267CA03600708459 /* Preview Assets.xcassets */; };
+		4992645C2A8E5BC900FECC4F /* DrawingName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4992645B2A8E5BC900FECC4F /* DrawingName.swift */; };
+		4992645E2A8E69E700FECC4F /* DrawingWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4992645D2A8E69E700FECC4F /* DrawingWrapperView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		17AD2BAF267CA03400708459 /* DrawingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingApp.swift; sourceTree = "<group>"; };
 		17AD2BB3267CA03600708459 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17AD2BB6267CA03600708459 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4992645B2A8E5BC900FECC4F /* DrawingName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingName.swift; sourceTree = "<group>"; };
+		4992645D2A8E69E700FECC4F /* DrawingWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingWrapperView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,7 @@
 				17197DE1267CA7D200D402F2 /* Line.swift */,
 				0AB9339327468F780011F73B /* PersistablePoint.swift */,
 				0AB9339127468C3C0011F73B /* PersistableColor.swift */,
+				4992645B2A8E5BC900FECC4F /* DrawingName.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -87,6 +92,7 @@
 			children = (
 				0AB933982746A0970011F73B /* ContentView.swift */,
 				0AB9339A2746A0F90011F73B /* DrawingPickerView.swift */,
+				4992645D2A8E69E700FECC4F /* DrawingWrapperView.swift */,
 				17197DDF267CA77500D402F2 /* DrawingView.swift */,
 				0A1D7E4127848B930093B615 /* InProgressLineView.swift */,
 				0A560B6E27764E4D00A277BB /* ToolBarView.swift */,
@@ -215,6 +221,7 @@
 			files = (
 				0AB9339F2746A2B10011F73B /* LogoutButton.swift in Sources */,
 				0AB933992746A0970011F73B /* ContentView.swift in Sources */,
+				4992645E2A8E69E700FECC4F /* DrawingWrapperView.swift in Sources */,
 				0AB933A12746A7670011F73B /* NewDrawingView.swift in Sources */,
 				17AD2BB0267CA03400708459 /* DrawingApp.swift in Sources */,
 				0AB9339B2746A0F90011F73B /* DrawingPickerView.swift in Sources */,
@@ -222,6 +229,7 @@
 				0A1D7E4227848B930093B615 /* InProgressLineView.swift in Sources */,
 				0AB9339227468C3C0011F73B /* PersistableColor.swift in Sources */,
 				17197DE4267CAE1200D402F2 /* DrawingEngine.swift in Sources */,
+				4992645C2A8E5BC900FECC4F /* DrawingName.swift in Sources */,
 				0AB93390274681F30011F73B /* Drawing.swift in Sources */,
 				0AB9339427468F780011F73B /* PersistablePoint.swift in Sources */,
 				0AB9339D2746A1EC0011F73B /* LoginView.swift in Sources */,

@@ -1,0 +1,9 @@
+{
+    "app_id": "draw-obtsw",
+    "config_version": 20210101,
+    "name": "Draw",
+    "location": "US-VA",
+    "provider_region": "aws-us-east-1",
+    "deployment_model": "LOCAL",
+    "environment": "production"
+}

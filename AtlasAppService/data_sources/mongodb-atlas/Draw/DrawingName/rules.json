@@ -1,0 +1,23 @@
+{
+    "collection": "DrawingName",
+    "database": "Draw",
+    "roles": [
+        {
+            "name": "readWriteOwnData",
+            "apply_when": {},
+            "document_filters": {
+                "write": {
+                    "author": "%%user.data.email"
+                },
+                "read": {
+                    "author": "%%user.data.email"
+                }
+            },
+            "read": true,
+            "write": true,
+            "insert": true,
+            "delete": true,
+            "search": true
+        }
+    ]
+}
